@@ -1,0 +1,37 @@
+:root {
+    --black: #000000;
+    --starry-night: #101114;
+    --thunder: #242628;
+    --boulder: #7C7E83;
+    --starry-night30: #101114;
+    --silver: #CBCCCD;
+    --white: #FFFFFF;
+
+    --tangerine: #FFC046;
+    --plum: #FF4646;
+    --magic: #49FF46;
+
+    --magic-radial: radial-gradient(50% 50% at 50% 50%, #49FF46 0%, #00F5E6 39.86%, rgba(255, 0, 199, 0.00) 100%);
+    --plum-radial: radial-gradient(50% 50% at 50% 50%, #FF4646 0%, #F50066 39.86%, rgba(55, 0, 255, 0.00) 100%);
+    --tangerine-radial: radial-gradient(50% 50% at 50% 50%, #FFC046 0%, #F57600 39.86%, rgba(255, 0, 0, 0.00) 100%);
+
+    --radius: 12px;
+    --heading-one: 56px;
+    --heading-two: 40px;
+    --body: 18px;
+
+    --primary-font: 'Petrona', serif;
+    --secondary-font: 'Noto Sans', sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+html, body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
