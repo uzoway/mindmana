@@ -3,7 +3,7 @@
     --starry-night: #101114;
     --thunder: #242628;
     --boulder: #7C7E83;
-    --starry-night30: #101114;
+    --starry-night30: rgba(16, 17, 20, 0.30);
     --silver: #CBCCCD;
     --white: #FFFFFF;
 
@@ -16,6 +16,7 @@
     --tangerine-radial: radial-gradient(50% 50% at 50% 50%, #FFC046 0%, #F57600 39.86%, rgba(255, 0, 0, 0.00) 100%);
 
     --radius: 12px;
+    --radius-lg: 100px;
     --heading-one: 56px;
     --heading-two: 40px;
     --body: 18px;
@@ -27,11 +28,167 @@
 * {
     padding: 0;
     margin: 0;
-    overflow: hidden;
+    overflow-x: hidden;
     box-sizing: border-box;
+    font-size: 18px;
 }
 
 html, body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+}
+
+.wrapper {
+    min-height: 100dvh;
+    background-color: var(--white);
+    width: 100vw;
+    position: relative;
+    
+}
+
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 2rem;
+    background-color: rgba(255, 255, 255, 0.596);
+    z-index: 2;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);  
+}
+
+.navigation .navigation__logo img {
+    width: 8.83rem;
+}
+
+.navigation .navigation__list {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.navigation .navigation__list .navigation__list--item {
+    list-style: none;
+    padding: .5rem 0;
+}
+
+.navigation .navigation__list .navigation__list--item a {
+    text-decoration: none;
+    font-family: var(--secondary-font);
+    font-weight: 600;
+    color: var(--starry-night);
+    font-size: 1rem;
+    position: relative;
+}
+
+.navigation__list--item a::before {
+    position: absolute;
+    content: "";
+    width: 1.2rem;
+    height: 2px;
+    background-color: var(--black);
+    bottom: -.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity .35s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+.navigation__list--item a:hover::before,
+.navigation__list--item a:focus::before,
+.navigation__list--item a:active::before {
+    opacity: 1;
+}
+
+.navigation__hamburger {
+    display: none;
+}
+
+.wrapper .main__container {
+    width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15vh 0 20vh;
+}
+
+.main__container .container {
+    max-width: 55%;
+    text-align: center;
+}
+
+.container .container__heading {
+    font-family: var(--primary-font);
+    text-transform: capitalize;
+    color: var(--starry-night);
+    font-size: clamp(2.2rem, 4vw, 3.1rem);
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.container .container__paragraph {
+    font-size: 1rem;
+    font-family: var(--secondary-font);
+    color: var(--starry-night);
+    font-weight: 400;
+    margin: 0 auto 1rem;
+    width: 80%;
+    line-height: 1.5;
+}
+
+.container .container__cta {
+    border-radius: var(--radius-lg);
+    text-transform: capitalize;
+    text-decoration: none;
+    background-color: var(--starry-night);
+    font-family: var(--secondary-font);
+    color: var(--white);
+    font-size: 1rem;
+    padding: 0.67rem 2.2rem;
+    display: inline-block;
+    margin: .5rem auto;
+    transition: background-color .35s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+.container .container__cta:hover, 
+.container .container__cta:focus, 
+.container .container__cta:active {
+    background-color: var(--starry-night30);
+}
+
+.container .container__cards {
+    display: flex;
+    text-align: left;
+    gap: 1.7rem;
+    margin-top: 2rem;
+}
+
+.container__cards .card {
+    flex-basis: 50%;
+    background-color: var(--plum);
+    box-shadow: 0px 4px 24px 0px rgba(124, 126, 131, 0.10);
+    backdrop-filter: blur(60px);
+    padding: 2.2rem;
+    border-radius: var(--radius);
+}
+
+.card .card__heading {
+    font-size: 2.2rem;
+    color: var(--starry-night);
+    font-family: var(--primary-font);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.card .card__paragraph {
+    font-size: 1rem;
+    color: var(--starry-night);
+    font-family: var(--secondary-font);
+    font-weight: 400;
+    line-height: 1.7;
 }
