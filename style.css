@@ -103,6 +103,10 @@ body.scrolled .navigation {
     transition: opacity .4s cubic-bezier(.3, 1, .3, 1);
 }
 
+.navigation__list--item a.active::before {
+    opacity: 1;
+}
+
 .navigation__list--item a:hover::before,
 .navigation__list--item a:focus::before,
 .navigation__list--item a:active::before {
@@ -404,4 +408,16 @@ body.scrolled .navigation {
     .container__cards .card {
         padding: 1.5rem;
     }
+}
+
+
+/* Disclaimer page */
+.wrapper .disclaimer__container {
+    margin: 0;
+    z-index: 2;
+    position: relative;
+}
+
+.wrapper .disclaimer__container .container {
+    padding: 20vh 1.2rem;
 }
