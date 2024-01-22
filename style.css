@@ -160,6 +160,23 @@ body.scrolled .navigation {
     line-height: 1.5;
 }
 
+.container .container__paragraph a {
+    text-decoration: none;
+    color: var(--plum);
+    font-family: var(--secondary-font);
+    transition: opacity .3s ease-out;
+}
+
+.container .container__paragraph a:hover {
+    opacity: 0.7;
+}
+
+.container .container__paragraph a:focus, 
+.container .container__paragraph a:active {
+    opacity: 0.7;
+    outline: 1px solid var(--starry-night);
+}
+
 .container .container__cta {
     border-radius: var(--radius-lg);
     text-transform: capitalize;
