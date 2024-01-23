@@ -161,8 +161,9 @@ body.scrolled .navigation {
 }
 
 .container .container__paragraph a {
-    text-decoration: none;
-    color: var(--plum);
+    text-decoration: underline;
+    color: var(--black);
+    font-weight: 900;
     font-family: var(--secondary-font);
     transition: opacity .3s ease-out;
 }
@@ -219,11 +220,12 @@ body.scrolled .navigation {
 }
 
 .card .card__heading {
-    font-size: 2.2rem;
+    font-size: clamp(1.85rem, 4vw, 2.2rem);
+    line-height: 3.1rem;
     color: var(--starry-night);
     font-family: var(--primary-font);
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: .5rem;
 }
 
 .card .card__paragraph {
