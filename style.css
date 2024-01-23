@@ -4,6 +4,7 @@
     --thunder: #242628;
     --boulder: #7C7E83;
     --starry-night30: rgba(16, 17, 20, 0.30);
+    --starry-night90: rgba(16, 17, 20, 0.90);
     --silver: #CBCCCD;
     --white: #FFFFFF;
 
@@ -439,4 +440,86 @@ body.scrolled .navigation {
 
 .wrapper .disclaimer__container .container {
     padding: 20vh 1.2rem;
+}
+
+/* Print Page */
+.container__form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: .3rem;
+    gap: 1rem;
+}
+
+.container__form .form__group {
+    flex-grow: 1;
+}
+
+.container__form input {
+    padding: .66rem 1.2rem;
+    font-size: 1rem;
+    font-family: var(--secondary-font);
+    font-weight: 400;
+    border-radius: var(--radius-lg);
+    outline: none;
+    border: 1px solid var(--silver);
+    color: var(--starry-night);
+    width: 100%;
+    transition: border .35s ease;
+}
+
+.container__form input:focus, 
+.container__form input:hover {
+    border: 1px solid var(--starry-night90);
+}
+
+.container__form input::placeholder {
+    font-size: 1rem;
+    font-family: var(--secondary-font);
+    font-weight: 400;
+    color: var(--starry-night);
+}
+
+.container__form .container__form--btn {
+    font-size: 1rem;
+    color: var(--white);
+    background-color: var(--starry-night);
+    font-family: var(--secondary-font);
+    font-weight: 600;
+    outline: none;
+    border: none;
+    padding: .66rem 2.2rem;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: background-color .35s ease-out;
+}
+
+.container__form .container__form--btn:hover {
+    background-color: var(--starry-night30);
+}
+
+.container__form .container__form--btn:focus {
+    background-color: var(--starry-night30);
+    outline: 2px solid var(--black);
+    outline-offset: 2px;
+}
+
+@media (max-width: 1115px) {
+    .container__form {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 907px) {
+    .container__form {
+        flex-wrap: wrap;
+    }
+
+    .container__form .container__form--btn, 
+    .container__form .form__group {
+        flex-basis: 100%;
+        
+    }
 }
