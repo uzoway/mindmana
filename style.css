@@ -182,7 +182,8 @@ body.scrolled .navigation {
     outline: 1px solid var(--starry-night);
 }
 
-.container .container__cta {
+.container .container__cta, 
+.card__container--wrapper .container__cta {
     border-radius: var(--radius-lg);
     text-transform: capitalize;
     text-decoration: none;
@@ -194,27 +195,29 @@ body.scrolled .navigation {
     display: inline-block;
     margin: .5rem auto;
     transition: background-color var(--animation-primary);
+    border: 0;
+    cursor: pointer;
 }
 
 .container .container__cta:hover, 
 .container .container__cta:focus, 
-.container .container__cta:active {
+.container .container__cta:active,
+.card__container--wrapper .container__cta:hover,
+.card__container--wrapper .container__cta:focus,
+.card__container--wrapper .container__cta:active {
     background-color: var(--thunder);
 } 
-
-.container .container__cta:focus {
-    outline: 2px solid var(--thunder);
-    outline-offset: 2px;
-}
 
 .container .container__cards {
     display: flex;
     text-align: left;
     gap: 1.7rem;
     margin-top: 2rem;
+    position: relative;
 }
 
-.container__cards .card {
+.container__cards .card,
+.cards__container--item  {
     flex-basis: 50%;
     background-color: var(--white);
     box-shadow: 0px 4px 24px 0px rgba(124, 126, 131, 0.10);
@@ -223,7 +226,8 @@ body.scrolled .navigation {
     border-radius: var(--radius);
 }
 
-.card .card__heading {
+.card .card__heading, 
+.cards__container--item .item__heading {
     font-size: clamp(1.85rem, 4vw, 2.2rem);
     line-height: 3.1rem;
     color: var(--starry-night);
@@ -232,7 +236,8 @@ body.scrolled .navigation {
     margin-bottom: .5rem;
 }
 
-.card .card__paragraph {
+.card .card__paragraph, 
+.cards__container--item .item__paragraph {
     font-size: 1rem;
     color: var(--starry-night);
     font-family: var(--secondary-font);
@@ -254,7 +259,7 @@ body.scrolled .navigation {
     flex-wrap: wrap; 
     justify-content: center;
     filter: blur(130px);
-    animation: gradient 10s cubic-bezier(.85, 0, .15, 1) infinite alternate;
+    animation: gradient 10s cubic-bezier(.3, 0, .3, 1) infinite alternate;
 }
 
 @keyframes gradient {
@@ -425,6 +430,18 @@ body.scrolled .navigation {
         font-weight: 600;
         font-size: 1rem;
     }
+
+    .cards__container {
+        width: 20rem;
+    }
+
+    .card__wrapper .card__container {
+        width: 20rem;
+    }
+
+    .cards__container .cards__container--item {
+        max-width: 20rem;
+    }
 }
 
 @media (max-width: 357px) {
@@ -524,5 +541,165 @@ body.scrolled .navigation {
     .container__form .form__group {
         flex-basis: 100%;
         
+    }
+}
+
+/* Cards Page */ 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.card__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card__wrapper .card__container {
+    z-index: 2;
+    width: 50rem;
+}
+
+.card__container .card__container--wrapper {
+    text-align: center;
+    margin: 15vh auto 10vh;
+}
+
+.cards__container {
+    position: relative;
+    min-height: 75vh;
+    width: 50rem;
+}
+
+@media (max-width: 1071px) {
+    .cards__container {
+        min-height: 90vh;
+    }
+}
+
+.cards__container .cards__container--item {
+    position: absolute;
+    text-align: left;
+    width: 20rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.cards__container .cards__container--item:nth-child(5) {
+    transform: translate(-45%, -50%) scale(0.95);
+}
+
+.cards__container .cards__container--item:nth-child(4) {
+    transform: translate(-40%, -50%) scale(0.9);
+}
+
+@keyframes shuffle {
+
+    50% {
+        transform: translate(10%, -50%) scale(0.75) rotate(20deg);
+        animation-timing-function: cubic-bezier(0.77,0,0.175,1);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1) rotateY(0deg);
+        z-index: -1;
+    }
+}
+
+
+@media (max-width: 943px) {
+    .cards__container {
+        width: 30rem;
+    }
+
+    .card__wrapper .card__container {
+        width: 30rem;
+    }
+}
+
+@media (max-width: 515px) {
+    .cards__container .cards__container--item {
+        transform: translate(-55%, -50%) scale(1);
+    }
+    
+    .cards__container .cards__container--item:nth-child(5) {
+        transform: translate(-50%, -50%) scale(0.95);
+    }
+    
+    .cards__container .cards__container--item:nth-child(4) {
+        transform: translate(-45%, -50%) scale(0.9);
+    }
+}
+
+@media (max-width: 479px) {
+    .cards__container .cards__container--item {
+        transform: translate(-60%, -50%) scale(1);
+    }
+    
+    .cards__container .cards__container--item:nth-child(5) {
+        transform: translate(-55%, -50%) scale(0.95);
+    }
+    
+    .cards__container .cards__container--item:nth-child(4) {
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+}
+
+@media (max-width: 447px) {
+
+    .cards__container .cards__container--item {
+        width: 17rem;
+    }
+
+    .cards__container {
+        min-height: 100vh;
+    }
+
+    .cards__container .cards__container--item {
+        transform: translate(-65%, -50%) scale(1);
+    }
+    
+    .cards__container .cards__container--item:nth-child(5) {
+        transform: translate(-60%, -50%) scale(0.95);
+    }
+    
+    .cards__container .cards__container--item:nth-child(4) {
+        transform: translate(-55%, -50%) scale(0.9);
+    }
+}
+
+@media (max-width: 415px) {
+    .cards__container .cards__container--item {
+        transform: translate(-75%, -50%) scale(1);
+    }
+    
+    .cards__container .cards__container--item:nth-child(5) {
+        transform: translate(-75%, -50%) scale(1);
+    }
+    
+    .cards__container .cards__container--item:nth-child(4) {
+        transform: translate(-75%, -50%) scale(1);
+    }
+}
+
+@media (max-width: 367px) {
+    .cards__container .cards__container--item {
+        transform: translate(-78%, -50%) scale(1);
+    }
+    
+    .cards__container .cards__container--item:nth-child(5) {
+        transform: translate(-78%, -50%) scale(1);
+    }
+    
+    .cards__container .cards__container--item:nth-child(4) {
+        transform: translate(-78%, -50%) scale(1);
     }
 }
